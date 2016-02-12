@@ -5,6 +5,7 @@
 <!-- * Date: 2/2/2016-->
 <!-- * Time: 4:39 PM-->
 <!-- */-->
+
 <html>
 
     <?php
@@ -14,8 +15,10 @@
         }
         else{
             header('location:./pages/home.php');
+            exit;
         }
         include './functions/display_ctrl.php';
+        $username = $_SESSION["username"];
         $page = new Display();
     ?>
     <head>
@@ -27,45 +30,137 @@
 
         <title>eCalender 2.0</title>
 
-        <!-- Bootstrap Core CSS -->
-        <link href="./pages/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Include Date Range Picker -->
 
-        <!-- Custom CSS -->
-        <link href="./pages/css/grayscale.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="daterangepicker/css/daterangepicker.css" />
 
-        <!-- Custom Fonts -->
-        <link href="./pages/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<!--        <!-- Bootstrap Core CSS -->
+        <link href="pages/grayscale/css/bootstrap.min.css" rel="stylesheet">
+<!---->
+<!--        <!--  Custom CSS -->
+<!--        <link href="./pages/css/grayscale.css" rel="stylesheet">-->
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+        <link href="pages/grayscale/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--        <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">-->
+<!--        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">-->
+
+<!--         HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--         WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--        [if lt IE 9]>-->
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+<!--        <![endif]-->
     </head>
 
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.php">Ecalendar</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <?php
+                        echo '<li>
+                               <a style="color:#aaaaaa; font-size: 120%; font-weight: bold" href="index.php">Welcome &nbsp;'.$username.' </a>
+                           </li>';
+                        ?>
+                        <li>
+                            <a style="column-rule: #aaaaaa;font-size:120%; font-weight: bold" href="./pages/logout.php">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <h2 align="center"> Activities on </h2>
+                </div>
+            </div>
+        </div>
 
+          <div>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-8 col-md-offset-5">
+                             <input  type="text" name="birthdate">
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </br>
+        </br>
+        <div class="container">
+            <h2>Bordered Table</h2>
+            <p>The .table-bordered class adds borders to a table:</p>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         <?php
-            $page ->display_navigation_bar();
+
         ?>
 
-        <!-- jQuery -->
-        <script src="./pages/js/jquery.js"></script>
 
+
+
+        <!-- jQuery -->
+        <script src="pages/grayscale/js/jquery.js"></script>
+
+
+<!--        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>-->
+        <script type="text/javascript" src="daterangepicker/js/moment.js"></script>
+
+        <script type="text/javascript" src="daterangepicker/js/daterangepicker.js"></script>
+      <script type="text/javascript">
+          $(function() {
+              $('input[name="birthdate"]').daterangepicker({
+                  startDate:moment(),
+                  singleDatePicker: true,
+                  locale: {
+                      format: 'MMMM D, YYYY'
+                  }
+              });
+          });
+      </script>
         <!-- Bootstrap Core JavaScript -->
-        <script src="./pages/js/bootstrap.min.js"></script>
+        <script src="pages/grayscale/js/bootstrap.min.js"></script>
 
         <!-- Plugin JavaScript -->
-        <script src="./pages/js/jquery.easing.min.js"></script>
-
-        <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+        <script src="pages/grayscale/js/jquery.easing.min.js"></script>
+<!--         Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
         <script type="./pages/text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
         <!-- Custom Theme JavaScript -->
-        <script src=".pages/js/grayscale.js"></script>
+        <script src="pages/grayscale/js/grayscale.js"></script>
     </body>
-
 </html>
