@@ -126,6 +126,7 @@
                 <col width="30px"/>
                 <col width="4px"/>';
             while( $row = $queryPrepared->fetch(PDO::FETCH_ASSOC)){
+                $taskid = $row["id"];
                 echo '
                 <form>
                 <tr>
@@ -135,8 +136,9 @@
                 <td colspan="2" style="text-align:center">
                     '.$row["startTime"].'-'.$row["endTime"].'
                 </td>
+                <input type="hidden" name="taskid" value="'.$taskid.'"/>
                 <td>
-                <button type="submit" formaction="./handlers/taskInsert_hndlr.php" formmethod="post" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
+                <button type="submit" formaction="./handlers/taskDelete_hndlr.php" formmethod="post" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
                 </td>
                 </tr>
                 </form>';
@@ -155,7 +157,7 @@
                 <td >
                     <div id="datetimepicker3" class="input-append">
                         <input name="starttime" placeholder="Start Time" data-format="hh:mm:ss" type="text" size="6">
-                        <span class="add-on">
+                        <span class="add-on" >
                           <i data-time-icon="icon-time">
                           </i>
                         </span>
@@ -165,7 +167,7 @@
                     <td >
                         <div id="datetimepicker4" class="input-append">
                             <input name="endtime" placeholder="End Time" data-format="hh:mm:ss" type="text" size="6">
-                        <span class="add-on">
+                        <span class="add-on" >
                           <i data-time-icon="icon-time" >
                           </i>
                         </span>
