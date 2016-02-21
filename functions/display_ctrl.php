@@ -118,30 +118,31 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $query = "select * from tasks where userid = $userid order by startTime";
             $queryPrepared = $pdo->prepare($query);
-            while( $row = $queryPrepared->fetch()){
-                echo '<div class="container">
+            $queryPrepared->execute(array($userid));
+            echo '<div class="container">
                 <table class="table" class="fixed">
                 <col width="600px"/>
                 <col width="30px"/>
                 <col width="30px"/>
+                <col width="4px"/>';
+            while( $row = $queryPrepared->fetch(PDO::FETCH_ASSOC)){
+                echo '
+                <form>
                 <tr>
                 <td>
                     '.$row["task"].'
                 </td>
-                <td rowspan="2">
+                <td colspan="2" style="text-align:center">
                     '.$row["startTime"].'-'.$row["endTime"].'
                 </td>
-
+                <td>
+                <button type="submit" formaction="./handlers/taskInsert_hndlr.php" formmethod="post" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
+                </td>
                 </tr>
-                </table>';
+                </form>';
 
             }
-            echo '<div class="container">
-            <table class="table">
-                <col width="600px" />
-                <col width="30px" />
-                <col width="30px" />
-                <col width="4px"/>
+            echo '
                 <form>
                 <tr >
 
@@ -172,7 +173,7 @@
                     </td>
 
                     <td>
-                        <button type="submit" formaction="../handlers/taskInsert_hndlr.php" formmethod="post" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save"></span></button>
+                        <button type="submit" formaction="./handlers/taskInsert_hndlr.php" formmethod="post" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-save"></span></button>
                     </td>
 
                 </tr>
