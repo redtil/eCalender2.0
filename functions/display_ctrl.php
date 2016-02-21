@@ -23,13 +23,13 @@
         <title>eCalender 2.0</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../pages/grayscale/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="css/grayscale.css" rel="stylesheet">
+        <link href="../pages/grayscale/css/grayscale.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../pages/grayscale/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
@@ -42,7 +42,7 @@
     </head>
     <?php
     }
-    function display_navigation_bar(){
+     function display_navigation_bar(){
 
     ?>
         <!-- Navigation -->
@@ -88,14 +88,14 @@
     </nav>
     <?php
     }
-    function isURLcurrentPage($url){
+     function isURLcurrentPage($url){
         if(strpos($_SERVER["SCRIPT_NAME"],$url)){
             return true;
         }
         else
             return false;
     }
-    function display_header(){
+     function display_header(){
 
     }
 
@@ -103,15 +103,83 @@
 
     }
 
-    function display_navigation_link($name,$url){
+   function display_navigation_link($name,$url){
         echo '<li>
             <a class="page-scroll" href="'.$url.'">'.$name.'</a>
         </li>';
     }
 
-    function display_content(){
+   function display_content(){
 
     }
 
+        function display_index_panels($userid){
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $query = "select * from tasks where userid = $userid order by startTime";
+            $queryPrepared = $pdo->prepare($query);
+            while( $row = $queryPrepared->fetch()){
+                echo '<div class="container">
+                <table class="table" class="fixed">
+                <col width="600px"/>
+                <col width="30px"/>
+                <col width="30px"/>
+                <tr>
+                <td>
+                    '.$row["task"].'
+                </td>
+                <td rowspan="2">
+                    '.$row["startTime"].'-'.$row["endTime"].'
+                </td>
+
+                </tr>
+                </table>';
+
+            }
+            echo '<div class="container">
+            <table class="table">
+                <col width="600px" />
+                <col width="30px" />
+                <col width="30px" />
+                <col width="4px"/>
+                <form>
+                <tr >
+
+                    <td >
+                         <input name="task" placeholder="Activity/Task" type="text" style="font-size:10pt;height:20px;width:500px;">
+                    </td>
+
+
+
+                <td >
+                    <div id="datetimepicker3" class="input-append">
+                        <input name="starttime" placeholder="Start Time" data-format="hh:mm:ss" type="text" size="6">
+                        <span class="add-on">
+                          <i data-time-icon="icon-time">
+                          </i>
+                        </span>
+                    </div>
+                </td>
+
+                    <td >
+                        <div id="datetimepicker4" class="input-append">
+                            <input name="endtime" placeholder="End Time" data-format="hh:mm:ss" type="text" size="6">
+                        <span class="add-on">
+                          <i data-time-icon="icon-time" >
+                          </i>
+                        </span>
+                        </div>
+                    </td>
+
+                    <td>
+                        <button type="submit" formaction="../handlers/taskInsert_hndlr.php" formmethod="post" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-save"></span></button>
+                    </td>
+
+                </tr>
+                </form>
+
+            </table>
+                </div>';
+        }
 }
 ?>

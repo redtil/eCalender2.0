@@ -55,7 +55,6 @@ class Database
     }
 
     public static function getUserDetails($username,$detail){
-
         $pdo= self::connect();
         $query = "select * from users where username = '$username'";
         $queryPrepared = $pdo->prepare($query);

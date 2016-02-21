@@ -34,6 +34,10 @@
 
         <link rel="stylesheet" type="text/css" href="daterangepicker/css/daterangepicker.css" />
 
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" media="screen"
+              href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+
 <!--        <!-- Bootstrap Core CSS -->
         <link href="pages/grayscale/css/bootstrap.min.css" rel="stylesheet">
 <!---->
@@ -88,49 +92,24 @@
           <div>
               <div class="container">
                   <div class="row">
-                      <div class="col-md-8 col-md-offset-5">
-                             <input  type="text" name="birthdate">
+                      <div align="center">
+                             <input type="text" name="birthdate">
                       </div>
                   </div>
               </div>
           </div>
         </br>
         </br>
-        <div class="container">
-            <h2>Bordered Table</h2>
-            <p>The .table-bordered class adds borders to a table:</p>
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        </br>
+
+
+
+
+
         <?php
-
+            $userid = Database::getUserDetails($username,"id");
+            $page->display_index_panels($userid);
         ?>
-
-
 
 
         <!-- jQuery -->
@@ -141,22 +120,58 @@
         <script type="text/javascript" src="daterangepicker/js/moment.js"></script>
 
         <script type="text/javascript" src="daterangepicker/js/daterangepicker.js"></script>
-      <script type="text/javascript">
-          $(function() {
-              $('input[name="birthdate"]').daterangepicker({
-                  startDate:moment(),
-                  singleDatePicker: true,
-                  locale: {
-                      format: 'MMMM D, YYYY'
-                  }
-              });
-          });
-      </script>
+        <script type="text/javascript"
+                src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+        </script>
+
+        <script type="text/javascript">
+            $(function() {
+                $('input[name="birthdate"]').daterangepicker({
+                    startDate:moment(),
+                    opens:'center',
+                    singleDatePicker: true,
+                    locale: {
+                        format: 'MMMM D, YYYY'
+                    }
+                });
+            });
+            $(document).ready(function(){
+
+            // Select all elements with data-toggle="tooltips" in the document
+            $('.glyphicon-save').tooltip({title:"Save",placement: function (tooltip, element) {
+
+                    var position = $(element).position();
+                    var width = $(window).height();
+                    console.log(position);
+
+                    window.setTimeout(function() {
+                        console.log(position);
+                        $(tooltip)
+                            .addClass('right')
+                            .css({top: position['top']-5,left:position['left']+10})
+                            .find('.tooltip-arrow').css({top:'50%',left: '1%'});
+
+                        $(tooltip).addClass('in');
+                    },0);
+
+            }});
+                });
+
+        </script>
+            <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({pickDate:false});
+                $('#datetimepicker4').datetimepicker({pickDate:false});
+            });
+        </script>
+
         <!-- Bootstrap Core JavaScript -->
         <script src="pages/grayscale/js/bootstrap.min.js"></script>
 
         <!-- Plugin JavaScript -->
         <script src="pages/grayscale/js/jquery.easing.min.js"></script>
+
+
 <!--         Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
         <script type="./pages/text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
