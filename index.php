@@ -84,7 +84,7 @@
         <div>
             <div class="container">
                 <div class="row">
-                    <h2 align="center"> Activities on </h2>
+                    <h2 align="center">My Activities on </h2>
                 </div>
             </div>
         </div>

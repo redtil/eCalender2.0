@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54d4ef4d-c359-4026-9b0b-f5d460a0f0af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions/display_ctrl.php" afterPath="$PROJECT_DIR$/functions/display_ctrl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handlers/taskInsert_hndlr.php" afterPath="$PROJECT_DIR$/handlers/taskInsert_hndlr.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="eCalender2.0.iws" />
@@ -73,14 +74,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="22.961538" vertical-offset="2382" max-vertical-offset="3162">
-              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3323263" vertical-offset="1242" max-vertical-offset="3162">
+              <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
               <folding>
-                <marker date="1455903931422" expanded="true" signature="3019:3194" placeholder="..." />
-                <marker date="1455903931422" expanded="true" signature="3062:3111" placeholder="..." />
+                <marker date="1456058632715" expanded="true" signature="3019:3194" placeholder="..." />
+                <marker date="1456058632715" expanded="true" signature="3062:3111" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -175,10 +176,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="taskDelete_hndlr.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="taskDelete_hndlr.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handlers/taskDelete_hndlr.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34075725" vertical-offset="0" max-vertical-offset="629">
+            <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="629">
               <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
               <folding>
                 <marker date="1456057794662" expanded="true" signature="467:494" placeholder="delete from ..." />
@@ -217,10 +218,10 @@
       <file leaf-file-name="taskInsert_hndlr.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handlers/taskInsert_hndlr.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="680">
-              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="748">
+              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
               <folding>
-                <marker date="1456049571386" expanded="true" signature="604:670" placeholder="insert into ..." />
+                <marker date="1456058438211" expanded="true" signature="709:775" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
@@ -252,14 +253,14 @@
         <option value="$PROJECT_DIR$/js/daterangepicker.js" />
         <option value="$PROJECT_DIR$/css/daterangepicker.css" />
         <option value="$PROJECT_DIR$/tables.sql" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/functions/db_access.php" />
         <option value="$PROJECT_DIR$/handlers/login_hndlr.php" />
         <option value="$PROJECT_DIR$/handlers/crud_hndlr.php" />
-        <option value="$PROJECT_DIR$/handlers/taskInsert_hndlr.php" />
         <option value="$PROJECT_DIR$/functions/display_ctrl.php" />
         <option value="$PROJECT_DIR$/handlers/taskDelete.php" />
         <option value="$PROJECT_DIR$/handlers/taskDelete_hndlr.php" />
+        <option value="$PROJECT_DIR$/handlers/taskInsert_hndlr.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -474,7 +475,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3100137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3100137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31275168" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2621212" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -616,8 +617,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2244">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1455903931422" expanded="true" signature="3019:3194" placeholder="..." />
-            <marker date="1455903931422" expanded="true" signature="3062:3111" placeholder="..." />
+            <marker date="1456058632715" expanded="true" signature="3019:3194" placeholder="..." />
+            <marker date="1456058632715" expanded="true" signature="3062:3111" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -705,8 +706,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="204">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
-            <marker date="1455903931422" expanded="true" signature="3019:3194" placeholder="..." />
-            <marker date="1455903931422" expanded="true" signature="3062:3111" placeholder="..." />
+            <marker date="1456058632715" expanded="true" signature="3019:3194" placeholder="..." />
+            <marker date="1456058632715" expanded="true" signature="3062:3111" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -993,45 +994,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handlers/login_hndlr.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="833">
-          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
-          <folding>
-            <marker date="1456041778330" expanded="true" signature="796:844" placeholder="select * fro..users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handlers/register_hndlr.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.5" vertical-offset="449" max-vertical-offset="1224">
-          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-          <folding>
-            <marker date="1455013655581" expanded="true" signature="1285:1333" placeholder="select * fro..users..." />
-            <marker date="1455013655581" expanded="true" signature="1617:1659" placeholder="select * fro..users..." />
-            <marker date="1455013655581" expanded="true" signature="2049:2109" placeholder="insert into ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/functions/db_access.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-31.384615" vertical-offset="0" max-vertical-offset="1258">
           <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
           <folding>
             <marker date="1455904954750" expanded="true" signature="1313:1361" placeholder="select * fro..users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="22.961538" vertical-offset="2382" max-vertical-offset="3162">
-          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding>
-            <marker date="1455903931422" expanded="true" signature="3019:3194" placeholder="..." />
-            <marker date="1455903931422" expanded="true" signature="3062:3111" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1112,23 +1080,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handlers/taskInsert_hndlr.php">
+    <entry file="file://$PROJECT_DIR$/handlers/login_hndlr.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="680">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="833">
+          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
           <folding>
-            <marker date="1456049571386" expanded="true" signature="604:670" placeholder="insert into ..." />
+            <marker date="1456041778330" expanded="true" signature="796:844" placeholder="select * fro..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers/register_hndlr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.5" vertical-offset="449" max-vertical-offset="1224">
+          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
+          <folding>
+            <marker date="1455013655581" expanded="true" signature="1285:1333" placeholder="select * fro..users..." />
+            <marker date="1455013655581" expanded="true" signature="1617:1659" placeholder="select * fro..users..." />
+            <marker date="1455013655581" expanded="true" signature="2049:2109" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/handlers/taskDelete_hndlr.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34075725" vertical-offset="0" max-vertical-offset="629">
+        <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="629">
           <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding>
             <marker date="1456057794662" expanded="true" signature="467:494" placeholder="delete from ..." />
             <marker date="1456057794662" expanded="true" signature="467:495" placeholder="delete from ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers/taskInsert_hndlr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="748">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding>
+            <marker date="1456058438211" expanded="true" signature="709:775" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323263" vertical-offset="1242" max-vertical-offset="3162">
+          <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
+          <folding>
+            <marker date="1456058632715" expanded="true" signature="3019:3194" placeholder="..." />
+            <marker date="1456058632715" expanded="true" signature="3062:3111" placeholder="..." />
           </folding>
         </state>
       </provider>

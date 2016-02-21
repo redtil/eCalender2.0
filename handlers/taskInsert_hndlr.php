@@ -16,6 +16,10 @@
     $username = $_SESSION["username"];
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $task = $_POST["task"];
+        if(strlen($task) == 0){
+            header('location:../index.php');
+            exit;
+        }
         $startTime = $_POST["starttime"];
         $endTime = $_POST["endtime"];
 
