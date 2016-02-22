@@ -29,16 +29,16 @@
         <link href="../pages/grayscale/css/grayscale.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="../pages/grayscale/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="../pages/grayscale/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--        <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<!--        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+        <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
+<!--        <![endif]-->
     </head>
     <?php
     }
@@ -49,12 +49,12 @@
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <!--<a class="navbar-brand page-scroll" href="#page-top">-->
-                    <!--<i class="fa fa-play-circle"></i>  <span class="light">Start</span> Bootstrap-->
-                <!--</a>-->
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -113,22 +113,26 @@
 
     }
 
-        function display_index_panels($userid){
+        function display_index_panels($userid,$date){
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $query = "select * from tasks where userid = $userid order by startTime";
+            if($date === "today"){
+                $date = date("Y-m-d");
+            }
+            $query = "select * from tasks where  dateTask='$date' and userid=$userid";
             $queryPrepared = $pdo->prepare($query);
-            $queryPrepared->execute(array($userid));
+            $queryPrepared->execute(array($date,$userid));
             echo '<div class="container">
                 <table class="table" class="fixed">
                 <col width="600px"/>
                 <col width="30px"/>
                 <col width="30px"/>
                 <col width="4px"/>';
+
             while( $row = $queryPrepared->fetch(PDO::FETCH_ASSOC)){
                 $taskid = $row["id"];
                 echo '
-                <form>
+
                 <tr>
                 <td>
                     '.$row["task"].'
@@ -141,7 +145,7 @@
                 <button type="submit" formaction="./handlers/taskDelete_hndlr.php" formmethod="post" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
                 </td>
                 </tr>
-                </form>';
+               ';
 
             }
             echo '
@@ -179,10 +183,12 @@
                     </td>
 
                 </tr>
-                </form>
+
 
             </table>
-                </div>';
+                </div>
+               </form> ';
         }
+
 }
 ?>

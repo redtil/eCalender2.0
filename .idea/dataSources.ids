@@ -13,6 +13,7 @@
       <column name="userid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="startTime" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92"/>
       <column name="endTime" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92"/>
+      <column name="dateTask" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="users" schema="" catalog="ecalendar2.0" type="TABLE">

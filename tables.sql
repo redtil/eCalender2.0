@@ -12,3 +12,9 @@ create table tasks(
   startTime time not null,
   endTime time not null
 );
+
+alter table tasks
+add date date not null;
+
+ALTER table tasks
+change date dateTask date not null;

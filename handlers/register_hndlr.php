@@ -17,7 +17,7 @@
         else{
             Print '<script> alert("Please enter Username") </script>';
             Print '<script> window.location.assign("../pages/register.php"); </script>';
-//            header('location:../pages/register.php');
+            header('location:../pages/register.php');
             exit;
         }
 
@@ -59,9 +59,10 @@
         $iQueryPrepare = $pdo->prepare($iQuery);
         $iQueryPrepare->execute(array($username,$encrypted_password,$email));
         Database::disconnect();
-        header('location:../index.php');
+        header('location:../index.php?date=today');
     }
     else{
         echo "You do not have access to this page.";
+        header('location:../pages/home.php');
     }
 ?>

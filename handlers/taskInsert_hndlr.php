@@ -11,13 +11,15 @@
 
     }
     else{
-        header('location: ../index.php');
+        header('location: ../pages/home.php');
     }
     $username = $_SESSION["username"];
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $date = date("Y-m-d",strtotime($_POST["date"]));
+        echo $date;
         $task = $_POST["task"];
         if(strlen($task) == 0){
-            header('location:../index.php');
+            header('location:../index.php?date='.$_SESSION["date"]);
             exit;
         }
         $startTime = $_POST["starttime"];
@@ -25,14 +27,14 @@
 
         $pdo = Database::connect();
         $userid = Database::getUserDetails($username,"id");
-        $query = "insert into tasks (task,userid,startTime,endTime) values (?,?,?,?)";
+        $query = 'insert into tasks (task,userid,startTime,endTime,dateTask) values (?,?,?,?,?)';
         $queryPrepared = $pdo->prepare($query);
-        $queryPrepared->execute(array($task,$userid,$startTime,$endTime));
-        header('location:../index.php');
+        $queryPrepared->execute(array($task,$userid,$startTime,$endTime,$date));
+        header('location:../index.php?date='.$_SESSION["date"]);
     }
     else{
         echo "You do not have access to this page.";
-        header('location:../index.php');
+        header('location:../pages/home.php');
     }
 
 ?>

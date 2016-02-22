@@ -51,12 +51,12 @@
 <!--         HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--         WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--        [if lt IE 9]>-->
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<!--        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+<!--        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
 <!--        <![endif]-->
     </head>
 
-    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <body id="page-top" data-spy="scroll"  data-target=".navbar-fixed-top">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -65,13 +65,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">Ecalendar</a>
+                    <a class="navbar-brand" href="index.php?date=
+                    <?php $_GET["date"] ?>
+                    ">Ecalendar</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <?php
                         echo '<li>
-                               <a style="color:#aaaaaa; font-size: 120%; font-weight: bold" href="index.php">Welcome &nbsp;'.$username.' </a>
+                               <a style="color:#aaaaaa; font-size: 120%; font-weight: bold" href="index.php?date='.
+                            $_GET["date"].'
+                               ">Welcome &nbsp;'.$username.' </a>
                            </li>';
                         ?>
                         <li>
@@ -88,12 +92,19 @@
                 </div>
             </div>
         </div>
+        <?php
+            $_SESSION["date"] = $_GET["date"];
+            $sessionDate = $_SESSION["date"];
+            $sessionDate = date('F j, Y',strtotime($sessionDate));
+        ?>
+
 
           <div>
               <div class="container">
                   <div class="row">
                       <div align="center">
-                             <input type="text" name="birthdate">
+                            <form>
+                             <input type="text" name="date" value="<?php echo $sessionDate;?>">
                       </div>
                   </div>
               </div>
@@ -101,14 +112,13 @@
         </br>
         </br>
         </br>
-
-
-
-
-
         <?php
-            $userid = Database::getUserDetails($username,"id");
-            $page->display_index_panels($userid);
+            if($_SERVER["REQUEST_METHOD"] == "GET") {
+
+                $date = $_GET["date"];
+                $userid = Database::getUserDetails($username, "id");
+                $page->display_index_panels($userid, $date);
+            }
         ?>
 
 
@@ -126,13 +136,18 @@
 
         <script type="text/javascript">
             $(function() {
-                $('input[name="birthdate"]').daterangepicker({
-                    startDate:moment(),
+                $('input[name="date"]').daterangepicker({
                     opens:'center',
                     singleDatePicker: true,
                     locale: {
                         format: 'MMMM D, YYYY'
                     }
+
+                });
+
+                $('input[name="date"]').on('apply.daterangepicker',function(ev,picker){
+                    console.log(picker.startDate.format('Y-m-d'));
+                    window.location.assign("index.php?date=" + picker.startDate.format('Y-MM-DD'));
                 });
             });
             $(document).ready(function(){
@@ -155,7 +170,25 @@
                     },0);
 
             }});
+                $('.glyphicon-remove').tooltip({title:"Remove",placement: function (tooltip, element) {
+
+                    var position = $(element).position();
+                    var width = $(window).height();
+                    console.log(position);
+
+                    window.setTimeout(function() {
+                        console.log(position);
+                        $(tooltip)
+                            .addClass('right')
+                            .css({top: position['top']-5,left:position['left']+10})
+                            .find('.tooltip-arrow').css({top:'50%',left: '1%'});
+
+                        $(tooltip).addClass('in');
+                    },0);
+
+                }});
                 });
+
 
         </script>
             <script type="text/javascript">

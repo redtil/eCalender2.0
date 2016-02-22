@@ -29,7 +29,7 @@
         while($row = $queryPrepared->fetch()){
             if(crypt($password,$row["password"]) == $row["password"]){
                 $_SESSION["username"] = $username;
-                header('location:../index.php');
+                header('location:../index.php?date=today');
             }
             else{
                 Print '<script> alert("Password is incorrect") </script>';
@@ -40,5 +40,6 @@
     }
     else{
         echo "You do not have access to this page.";
+        header('location:../pages/home.php');
     }
 ?>

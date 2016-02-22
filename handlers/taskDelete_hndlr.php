@@ -13,7 +13,7 @@
 
     }
     else{
-        header('location:../index.php');
+        header('location:../pages/home.php');
     }
     $username = $_SESSION["username"];
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -23,10 +23,10 @@
         $queryPrepared = $pdo->prepare($query);
         $queryPrepared->execute(array($taskid));
         Database::disconnect();
-        header('location:../index.php');
+        header('location:../index.php?date='.$_SESSION["date"]);
     }
     else{
         echo "You are not authorized to access this page.";
-        header('location:../index.php');
+        header('location:../pages/home.php');
     }
 ?>
