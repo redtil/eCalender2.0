@@ -10,11 +10,6 @@ create table tasks(
   task text not null,
   userid int not null,
   startTime time not null,
-  endTime time not null
+  endTime time not null,
+  dateTask date not null
 );
-
-alter table tasks
-add date date not null;
-
-ALTER table tasks
-change date dateTask date not null;
