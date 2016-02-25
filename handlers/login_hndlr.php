@@ -6,10 +6,11 @@
 <!-- */-->
 
 <?php
-    include '../functions/db_access.php';
+    include '../Entities/Users.php';
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_start();
-        $pdo = Database::connect();
+//        $pdo = Database::connect();
+        $userObj = new User();
         $username = $_POST["username"];
         $password = $_POST["password"];
         if(empty($username)){
@@ -23,23 +24,27 @@
             exit;
         }
 
-        $query = "select * from users where username = '$username'";
-        $queryPrepared = $pdo->prepare($query);
-        $queryPrepared->execute(array($username));
-        while($row = $queryPrepared->fetch()){
-            if(crypt($password,$row["password"]) == $row["password"]){
-                $_SESSION["username"] = $username;
-                header('location:../index.php?date=today');
-            }
-            else{
-                Print '<script> alert("Password is incorrect") </script>';
-                Print '<script> window.location.assign("../pages/login.php")</script>';
-                exit;
-            }
+        $rowPassword = $userObj::getUserDetails($username,"password");
+        if($rowPassword){
+            $userObj::checkPassword($username,$password,$rowPassword);
+
+//        $query = "select * from users where username = '$username'";
+//        $queryPrepared = $pdo->prepare($query);
+//        $queryPrepared->execute(array($username));
+//        while($row = $queryPrepared->fetch()){
+//            if(crypt($password,$row["password"]) == $row["password"]){
+//                $_SESSION["username"] = $username;
+//                header('location:../index.php?date=today');
+//            }
+//            else{
+//                Print '<script> alert("Password is incorrect") </script>';
+//                Print '<script> window.location.assign("../pages/login.php")</script>';
+//                exit;
+//            }
         }
     }
     else{
         echo "You do not have access to this page.";
-        header('location:../pages/home.php');
+//        header('location:../pages/home.php');
     }
 ?>

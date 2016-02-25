@@ -116,7 +116,8 @@
             if($_SERVER["REQUEST_METHOD"] == "GET") {
 
                 $date = $_GET["date"];
-                $userid = Database::getUserDetails($username, "id");
+                $userObj = new User();
+                $userid = $userObj::getUserDetails($username, "id");
                 $page->display_index_panels($userid, $date);
             }
         ?>

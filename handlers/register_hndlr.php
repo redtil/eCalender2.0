@@ -7,9 +7,13 @@
 <!-- */-->
 
 <?php
-    include '../functions/db_access.php';
+
+    include '../Entities/Users.php';
+
     if($_SERVER['REQUEST_METHOD'] == "POST"){
-        $pdo = Database::connect();
+        $userObj = new User();
+
+//        $pdo = Database::connect();
 
         // TODO: change these alerts to tooltip messages
         if($_POST["username"])
@@ -38,31 +42,31 @@
             exit;
         }
 
-
-        $sQuery = "select * from users WHERE username = '$username'";
-        foreach($pdo->query($sQuery) as $row){
-            Print  '<script> alert("This username is already used by another user.") </script>';
-            Print '<script> window.location.assign("../pages/register.php"); </script>';
-            exit;
-        }
-
-        $eQuery = "select * from users where email = '$email'";
-        $eQueryPrepared = $pdo->prepare($eQuery);
-        $eQueryPrepared->execute(array($email));
-        while( $row = $eQueryPrepared->fetch()){
-            Print  '<script> alert("This email address is already used by another user.") </script>';
-            Print '<script> window.location.assign("../pages/register.php"); </script>';
-            exit;
-        }
-
-        $iQuery = 'insert into users (username, password, email) values (?,?,?)';
-        $iQueryPrepare = $pdo->prepare($iQuery);
-        $iQueryPrepare->execute(array($username,$encrypted_password,$email));
+        $userObj::insert($username,$encrypted_password,$email);
+//        $sQuery = "select * from users WHERE username = '$username'";
+//        foreach($pdo->query($sQuery) as $row){
+//            Print  '<script> alert("This username is already used by another user.") </script>';
+//            Print '<script> window.location.assign("../pages/register.php"); </script>';
+//            exit;
+//        }
+//
+//        $eQuery = "select * from users where email = '$email'";
+//        $eQueryPrepared = $pdo->prepare($eQuery);
+//        $eQueryPrepared->execute(array($email));
+//        while( $row = $eQueryPrepared->fetch()){
+//            Print  '<script> alert("This email address is already used by another user.") </script>';
+//            Print '<script> window.location.assign("../pages/register.php"); </script>';
+//            exit;
+//        }
+//
+//        $iQuery = 'insert into users (username, password, email) values (?,?,?)';
+//        $iQueryPrepare = $pdo->prepare($iQuery);
+//        $iQueryPrepare->execute(array($username,$encrypted_password,$email));
         Database::disconnect();
         header('location:../index.php?date=today');
     }
     else{
         echo "You do not have access to this page.";
-        header('location:../pages/home.php');
+//        header('location:../pages/home.php');
     }
 ?>

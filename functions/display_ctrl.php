@@ -7,7 +7,7 @@
 <!-- */-->
 
 <?php
-    include 'db_access.php';
+    include (__DIR__."/../Entities/Users.php");
 
     class Display{
         private static $buttons = array("home"=> "home.php","login"=>"login.php","register"=>"register.php");
@@ -71,7 +71,8 @@
                            }
                            else if(strpos($_SERVER['SCRIPT_NAME'], "index.php")){
                                //TODO: change username to firstname and lastname
-                               $username = Database::getUserDetails($_SESSION["username"],"username");
+                               $userObj = new User();
+                               $username = $userObj::getUserDetails($_SESSION["username"],"username");
                                echo '<li>
                                         <a style="color:#ffffff">Welcome &nbsp;'.$username.'</a>
                                     </li>';
@@ -109,9 +110,6 @@
         </li>';
     }
 
-   function display_content(){
-
-    }
 
         function display_index_panels($userid,$date){
             $pdo = Database::connect();
