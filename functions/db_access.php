@@ -41,14 +41,5 @@ class Database
     {
         self::$cont = null;
     }
-//    public static function getUserDetails($username,$detail){
-//        $query = "select * from users where username = '$username'";
-//        $queryPrepared = self::$cont->prepare($query);
-//        $queryPrepared->execute(array($username));
-//
-//        while($row = $queryPrepared->fetch()){
-//            return $row[$detail];
-//        }
-//    }
 }
 ?>

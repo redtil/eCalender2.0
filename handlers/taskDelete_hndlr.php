@@ -17,13 +17,11 @@
     }
     $username = $_SESSION["username"];
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-//        $pdo = Database::connect();
+
         $taskObj = new Task();
         $taskid = $_POST["taskid"];
         $taskObj::delete($taskid);
-//        $query = "delete from tasks where id=?";
-//        $queryPrepared = $pdo->prepare($query);
-//        $queryPrepared->execute(array($taskid));
+
         Database::disconnect();
         header('location:../index.php?date='.$_SESSION["date"]);
     }

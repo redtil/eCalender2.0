@@ -30,12 +30,7 @@
         $taskObj = new Task();
         $taskObj = $taskObj->create($username);
         $taskObj::insert($task,$startTime,$endTime,$date);
-//        $pdo = Database::connect();
-//        $userid = Database::getUserDetails($username,"id");
-//
-//        $query = 'insert into tasks (task,userid,startTime,endTime,dateTask) values (?,?,?,?,?)';
-//        $queryPrepared = $pdo->prepare($query);
-//        $queryPrepared->execute(array($task,$userid,$startTime,$endTime,$date));
+
         Database::disconnect();
 
         header('location:../index.php?date='.$_SESSION["date"]);
