@@ -157,23 +157,15 @@
 
 
                 <td >
-                    <div id="datetimepicker3" class="input-append">
-                        <input name="starttime" placeholder="Start Time" data-format="hh:mm:ss" type="text" size="6">
-                        <span class="add-on" >
-                          <i data-time-icon="icon-time">
-                          </i>
-                        </span>
-                    </div>
+                 <div>
+                        <input name="starttime" placeholder="Start Time" id="timeSelectOne" type="text" class="time" size="6" />
+                </div>
                 </td>
 
                     <td >
-                        <div id="datetimepicker4" class="input-append">
-                            <input name="endtime" placeholder="End Time" data-format="hh:mm:ss" type="text" size="6">
-                        <span class="add-on" >
-                          <i data-time-icon="icon-time" >
-                          </i>
-                        </span>
-                        </div>
+                       <div>
+                        <input name="endtime" placeholder="End Time" id="timeSelectTwo" type="text" class="time" size="6" />
+                </div>
                     </td>
 
                     <td>
