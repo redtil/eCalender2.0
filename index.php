@@ -160,10 +160,14 @@
             $(function() {
 //	$.calendars.picker.setDefaults({renderer: $.calendars.picker.themeRollerRenderer}); // Requires jquery.calendars.picker.ext.js
                 var calendar = $.calendars.instance('persian');
-                $('#popupDatepicker').calendarsPicker({calendar: calendar});
+                $('#popupDatepicker').calendarsPicker({calendar: calendar, onSelect: putDate});
                 $('#inlineDatepicker').calendarsPicker({calendar: calendar, onSelect: showDate});
             });
 
+            function putDate (date){
+                console.log(date[0]._year + ''+ date[0]._month + '' + date[0]._day);
+//                window.location.assign("index.php?date=" + picker.startDate.format('Y-MM-DD'));
+            }
             function showDate(date) {
                 alert('The date chosen is ' + date);
             }
